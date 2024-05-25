@@ -55,7 +55,6 @@ namespace AsyncDapper
         {
             using IDbConnection connection = new NpgsqlConnection(_connectionString);
             connection.Open();
-            using IDbConnection db = new NpgsqlConnection(_connectionString);
             var sqlExpression = "UPDATE public.users SET name = @Name, age = @Age WHERE Id = @Id";
             await connection.ExecuteAsync(sqlExpression, entity);
         }
